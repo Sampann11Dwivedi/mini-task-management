@@ -43,7 +43,20 @@ This is a simple Task Management System built using Laravel and jQuery. It suppo
   php artisan migrate
 ```
 
-7. Start the server:
+7. Create a test user for authentication using Tinker:
+```bash
+  php artisan tinker
+  
+  use App\Models\User;
+  
+  User::create([
+      'name' => 'Test User',
+      'email' => 'test@example.com',
+      'password' => bcrypt('password')
+  ]);
+```
+
+8. Start the server:
 ```bash
   php artisan serve
 ```
@@ -98,6 +111,7 @@ Authorization: Bearer <token>
   "total": 65
 }
 ```
+
 ## Notes
 - Ensure the `.env` file has the correct `JWT_SECRET` set using the following command:
 ```bash
